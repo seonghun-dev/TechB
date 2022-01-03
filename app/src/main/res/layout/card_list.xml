@@ -1,0 +1,72 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="3dp"
+    android:id="@+id/chat_message_item_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/card_edge">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/list_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1"
+            android:text="나의 페어 프로그래밍 탐험기"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:layout_width="48dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:layout_marginEnd="20dp"
+            android:adjustViewBounds="true"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bookmark"
+            android:visibility="invisible"
+            android:id="@+id/book_mark"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/list_company"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="5dp"
+        android:text="Kako Tech Blog"
+        android:textSize="10sp"
+        android:textStyle="italic" />
+
+    <ImageView
+        android:id="@+id/list_img"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/list_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="안녕하세요, 카카오엔터프라이즈 hans입니다. 이번 글을 통해 제가 어떻게 페어 프로그래밍을 처음 접하게 되었고, 그 과정에서 무엇을 주목하게 되었는지, 그 후 어떤 것들을 경험하고 느꼈는지 공유드리고자 합니다. 탐험의 시작 애자일 방법론, XP(eXtreme Programming) 방법론 중에서도 페어 프로그래밍 방법론을 어떻게 접하게 되었는지 먼저 이야기하도록 하겠습니다. 2015년 여름, 첫 직장에서 당시 전사 차원으로 애자일 방법론을 도입하고자 샌프란시스코에 있는....."
+        android:textSize="10sp" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp" />
+</LinearLayout>
