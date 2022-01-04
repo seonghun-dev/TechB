@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/blog"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Blog" />
+    <item
+        android:id="@+id/conference"
+        android:icon="@android:drawable/ic_menu_camera"
+        android:title="Conference" />
+    <item
+        android:id="@+id/myProfile"
+        android:icon="@android:drawable/ic_menu_call"
+        android:title="My Profile" />
+</menu>

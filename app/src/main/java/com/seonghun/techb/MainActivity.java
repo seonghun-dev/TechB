@@ -2,42 +2,28 @@ package com.seonghun.techb;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
 import android.preference.PreferenceManager;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
+import android.view.MenuItem;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import org.w3c.dom.Text;
-
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-    ImageView iv_image;
+
+
+    private FragmentManager fragmentManager = getSupportFragmentManager();
+    private FragmentBlog fragmentBlog = new FragmentBlog();
+    private FragmentConference fragmentConference = new FragmentConference();
+    private FragmentMyprofile fragmentMyprofile = new FragmentMyprofile();
+
     RecyclerView list_recyclerview;
 
     private SharedPreferences preferences;
@@ -48,10 +34,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.frameLayout, fragmentBlog).commitAllowingStateLoss();
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new ItemSelectedListener());
+
+
         //Splash Setting
         Intent intent = new Intent(this, LoadingActivity.class);
         startActivity(intent);
-
+        /*
+        setContentView(R.layout.fragment_blog);
         //RecycleView Setting
         list_recyclerview = (RecyclerView) findViewById(R.id.recycle_view);
         list_recyclerview.setLayoutManager(new LinearLayoutManager(MainActivity.this));
@@ -62,8 +56,29 @@ public class MainActivity extends AppCompatActivity {
         //SharedPreferences Setting
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = preferences.edit();
+        */
     }
 
+    class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
 
-
+            switch(menuItem.getItemId())
+            {
+                case R.id.blog:
+                    transaction.replace(R.id.frameLayout, fragmentBlog).commitAllowingStateLoss();
+                    break;
+                case R.id.conference:
+                    transaction.replace(R.id.frameLayout, fragmentConference).commitAllowingStateLoss();
+                    break;
+                case R.id.myProfile:
+                    transaction.replace(R.id.frameLayout, fragmentMyprofile).commitAllowingStateLoss();
+                    break;
+            }
+            return true;
+        }
+    }
 }
+
+

@@ -106,7 +106,7 @@ class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                     Toast.makeText(v.getContext(), "저장했습니다.", Toast.LENGTH_SHORT).show();
                 } else {
                     marked.remove((Integer) num);
-                    Toast.makeText(v.getContext(), "제했습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "제거했습니다.", Toast.LENGTH_SHORT).show();
                 }
                 setStringArrayPref(v.getContext(), "marked", marked);
                 return true;
