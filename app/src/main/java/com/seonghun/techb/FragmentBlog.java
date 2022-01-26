@@ -35,6 +35,7 @@ public class FragmentBlog extends Fragment {
         int child_case = 0;
         list_recyclerview.setAdapter(new RecyclerViewAdapter(child_case, v.getContext()));
 
+        //SharedPreferences Setting
         preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         editor = preferences.edit();
         return v;

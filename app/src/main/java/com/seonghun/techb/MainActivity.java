@@ -24,14 +24,12 @@ public class MainActivity extends AppCompatActivity {
     private FragmentConference fragmentConference = new FragmentConference();
     private FragmentMyprofile fragmentMyprofile = new FragmentMyprofile();
 
-    RecyclerView list_recyclerview;
-
-    private SharedPreferences preferences;
-    private SharedPreferences.Editor editor;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (SharedPreference.getAttribute(getApplicationContext(), "userId") == null){
+            setContentView(R.layout.activity_login);
+        };
         setContentView(R.layout.activity_main);
 
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -44,19 +42,6 @@ public class MainActivity extends AppCompatActivity {
         //Splash Setting
         Intent intent = new Intent(this, LoadingActivity.class);
         startActivity(intent);
-        /*
-        setContentView(R.layout.fragment_blog);
-        //RecycleView Setting
-        list_recyclerview = (RecyclerView) findViewById(R.id.recycle_view);
-        list_recyclerview.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-        int child_case = 0;
-        list_recyclerview.setAdapter(new RecyclerViewAdapter(child_case, this));
-
-
-        //SharedPreferences Setting
-        preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        editor = preferences.edit();
-        */
     }
 
     class ItemSelectedListener implements BottomNavigationView.OnNavigationItemSelectedListener{
